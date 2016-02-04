@@ -1,0 +1,19 @@
+{
+  "name": "midj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "npm start",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron main.js"
+  },
+  "author": "Simon C. Wex <simon@simonwex.com>",
+  "license": "MIT",
+  "dependencies": {
+    "midi": "^0.9.4",
+    "three": "^0.73.2"
+  },
+  "devDependencies": {
+    "electron-prebuilt": "^0.36.7"
+  }
+}
