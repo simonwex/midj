@@ -1,7 +1,11 @@
 
 'use strict';
 
-const beats = require('./lib/beats');
+const inputs = {
+  'beats': require('./lib/beats'),
+  'oxygen': require('./lib/oxygen')
+};
+
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
@@ -26,8 +30,10 @@ function createWindow () {
   });
 
   // Subscribe to midi clock events
-  beats.subscribe(function(){
-    mainWindow.webContents.send('beat');
+  Object.keys(inputs).forEach(function (i) {
+    inputs[i].subscribe(function(message, data){
+      mainWindow.webContents.send(message, data);
+    });
   });
 }
 
